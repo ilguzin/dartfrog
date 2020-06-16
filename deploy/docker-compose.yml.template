@@ -22,6 +22,7 @@ services:
       - DD_HOSTNAME=${ENV_SWARM_HOST_1}
       - DD_APM_ENABLED=false
       - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
       - DD_PROCESS_AGENT_ENABLED=true
       - DD_CONTAINER_EXCLUDE=name:dd-agent-1
     networks:
@@ -53,6 +54,7 @@ services:
       - DD_HOSTNAME=${ENV_SWARM_HOST_2}
       - DD_APM_ENABLED=false
       - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
       - DD_PROCESS_AGENT_ENABLED=true
       - DD_CONTAINER_EXCLUDE=name:dd-agent-2
     networks:
@@ -84,6 +86,7 @@ services:
       - DD_HOSTNAME=${ENV_SWARM_HOST_3}
       - DD_APM_ENABLED=false
       - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
       - DD_PROCESS_AGENT_ENABLED=true
       - DD_CONTAINER_EXCLUDE=name:dd-agent-3
     networks:
