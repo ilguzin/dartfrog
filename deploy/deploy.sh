@@ -269,13 +269,6 @@ create_env() {
   ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
   # create env base directory and data directories
   mkdir -p ${ENV_BASEDIR}
-  mkdir -p ${ENV_BASEDIR}/data/zk_data
-  mkdir -p ${ENV_BASEDIR}/data/zk_log_data
-  mkdir -p ${ENV_BASEDIR}/data/zk_logs
-  mkdir -p ${ENV_BASEDIR}/data/kafka_data
-  mkdir -p ${ENV_BASEDIR}/data/mongo_data
-  mkdir -p ${ENV_BASEDIR}/data/redis_data
-  mkdir -p ${ENV_BASEDIR}/data/redis_conf
   # cd there
   cd ${ENV_BASEDIR}
   # clone the ${ENV_GITHUB_REPO_NAME} project into base directory
