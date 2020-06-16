@@ -28,6 +28,7 @@ services:
     networks:
       - ${ENV_NAME}
       - services-production
+      - rs-production
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
@@ -60,6 +61,7 @@ services:
     networks:
       - ${ENV_NAME}
       - services-production
+      - rs-production
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
@@ -92,6 +94,7 @@ services:
     networks:
       - ${ENV_NAME}
       - services-production
+      - rs-production
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
@@ -101,4 +104,6 @@ networks:
   ${ENV_NAME}:
     external: true
   services-production:
+    external: true
+  rs-production:
     external: true
