@@ -7,7 +7,7 @@ services:
       com.datadoghq.ad.check_names: '[zk]'
       com.datadoghq.ad.init_configs: '[{}]'
       com.datadoghq.ad.instances: '[{"host": "%%host%%", "port": "2181"}]'
-      com.datadoghq.ad.logs: '[{"source": "zk", "service": "zk1"},{"source": "kafka", "service": "k1"}]'
+      # com.datadoghq.ad.logs: '[{"source": "zk", "service": "zk1"},{"source": "kafka", "service": "k1"}]'
     deploy:
       replicas: 1
       restart_policy:
@@ -39,7 +39,7 @@ services:
       com.datadoghq.ad.check_names: '[zk]'
       com.datadoghq.ad.init_configs: '[{}]'
       com.datadoghq.ad.instances: '[{"host": "%%host%%", "port": "2181"}]'
-      com.datadoghq.ad.logs: '[{"source": "zk", "service": "zk2"},{"source": "kafka", "service": "k2"}]'
+      # com.datadoghq.ad.logs: '[{"source": "zk", "service": "zk2"},{"source": "kafka", "service": "k2"}]'
     deploy:
       replicas: 1
       restart_policy:
@@ -71,7 +71,7 @@ services:
       com.datadoghq.ad.check_names: '[zk]'
       com.datadoghq.ad.init_configs: '[{}]'
       com.datadoghq.ad.instances: '[{"host": "%%host%%", "port": "2181"}]'
-      com.datadoghq.ad.logs: '[{"source": "zk", "service": "zk3"},{"source": "kafka", "service": "k3"}]'
+      # com.datadoghq.ad.logs: '[{"source": "zk", "service": "zk3"},{"source": "kafka", "service": "k3"}]'
     deploy:
       replicas: 1
       restart_policy:
