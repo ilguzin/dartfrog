@@ -3,6 +3,10 @@ version: "3.7"
 services:
   dd-agent-1:
     image: datadog/agent:${DD_AGENT_VERSION}
+    labels:
+      com.datadoghq.ad.check_names: '[zk]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"host": "zk1", "port": "2181"}]'
     deploy:
       replicas: 1
       restart_policy:
@@ -29,6 +33,10 @@ services:
 
   dd-agent-2:
     image: datadog/agent:${DD_AGENT_VERSION}
+    labels:
+      com.datadoghq.ad.check_names: '[zk]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"host": "zk2", "port": "2181"}]'
     deploy:
       replicas: 1
       restart_policy:
@@ -55,6 +63,10 @@ services:
 
   dd-agent-3:
     image: datadog/agent:${DD_AGENT_VERSION}
+    labels:
+      com.datadoghq.ad.check_names: '[zk]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"host": "zk3", "port": "2181"}]'
     deploy:
       replicas: 1
       restart_policy:
