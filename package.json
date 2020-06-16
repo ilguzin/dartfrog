@@ -1,0 +1,19 @@
+{
+  "name": "dartfrog",
+  "version": "1.0.0",
+  "description": "DataDog integration for Swarm cluster",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilguzin/dartfrog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilguzin/dartfrog/issues"
+  },
+  "homepage": "https://github.com/ilguzin/dartfrog#readme"
+}

@@ -1,0 +1,25 @@
+# VSCode
+.vscode
+
+# NodeJS
+node_modules
+
+# All local / sensitice data files prefixed with .local
+.local.*
+
+# Sensitive data files
+.ssh
+secrets/
+tmp/
+
+# http daemon
+.htpasswd
+.htpasswd.nonencrypted
+
+# Docker Configs
+deploy/docker-compose.yml
+
+# Codeship AES and env files
+codeship.aes
+codeship.*.env
+codeship_deploy_key.pub

@@ -1,0 +1,81 @@
+version: "3.7"
+
+services:
+  dd-agent-1:
+    image: datadog/agent:${DD_AGENT_VERSION}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 20s
+      placement:
+        constraints: [node.hostname == ${ENV_SWARM_HOST_1}]
+    environment:
+      - DD_API_KEY=${ENV_DD_API_KEY}
+      - DD_ENV=${ENV_NAME}
+      - DD_HOSTNAME=${ENV_SWARM_HOST_1}
+      - DD_APM_ENABLED=false
+      - DD_LOGS_ENABLED=true
+      - DD_PROCESS_AGENT_ENABLED=true
+      - DD_CONTAINER_EXCLUDE=name:dd-agent-1
+    networks:
+      - ${ENV_NAME}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+
+  dd-agent-2:
+    image: datadog/agent:${DD_AGENT_VERSION}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 20s
+      placement:
+        constraints: [node.hostname == ${ENV_SWARM_HOST_2}]
+    environment:
+      - DD_API_KEY=${ENV_DD_API_KEY}
+      - DD_ENV=${ENV_NAME}
+      - DD_HOSTNAME=${ENV_SWARM_HOST_2}
+      - DD_APM_ENABLED=false
+      - DD_LOGS_ENABLED=true
+      - DD_PROCESS_AGENT_ENABLED=true
+      - DD_CONTAINER_EXCLUDE=name:dd-agent-2
+    networks:
+      - ${ENV_NAME}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+
+  dd-agent-3:
+    image: datadog/agent:${DD_AGENT_VERSION}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 20s
+      placement:
+        constraints: [node.hostname == ${ENV_SWARM_HOST_3}]
+    environment:
+      - DD_API_KEY=${ENV_DD_API_KEY}
+      - DD_ENV=${ENV_NAME}
+      - DD_HOSTNAME=${ENV_SWARM_HOST_3}
+      - DD_APM_ENABLED=false
+      - DD_LOGS_ENABLED=true
+      - DD_PROCESS_AGENT_ENABLED=true
+      - DD_CONTAINER_EXCLUDE=name:dd-agent-3
+    networks:
+      - ${ENV_NAME}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+
+networks:
+  ${ENV_NAME}:
+    external: true

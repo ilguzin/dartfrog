@@ -1,0 +1,16 @@
+deploy-dd-swarm-b:
+  build:
+    image: serverfarm/ssh
+    dockerfile: Dockerfile.ssh
+  environment:
+    ENV_PATH: /mnt/data/deployments
+    # ENV_GITHUB_REPO_NAME: dartfrog
+  encrypted_env_file:
+    # ENV_PATH (default: /mnt/deployments) and ENV_GITHUB_REPO_NAME (default: dartfrog) can be overridden in "environment" section
+    - codeship.dockerhub.env.encrypted
+    - codeship.github.dd-swarm-b.env.encrypted
+    - codeship.dd-swarm-b.env.encrypted
+    - codeship.swarm-b-1.digitalocean.provider.env.encrypted
+  volumes:
+    - ./.ssh:/root/.ssh
+

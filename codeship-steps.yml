@@ -1,0 +1,6 @@
+- type: parallel
+  name: Run deploy
+  steps:
+    - name: Services Development
+      service: deploy-dd-swarm-b
+      command: /deploy/deploy_cd_run.sh dd-swarm-b
