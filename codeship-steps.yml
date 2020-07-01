@@ -1,7 +1,11 @@
 - type: parallel
   name: Run deploy
   steps:
-    - name: Services Development
+    - name: Services DO Integration
+      service: deploy-dd-swarm-a
+      command: /deploy/deploy_cd_run.sh dd-swarm-a
+
+    - name: Services DO Production
       service: deploy-dd-swarm-b
       command: /deploy/deploy_cd_run.sh dd-swarm-b
 
