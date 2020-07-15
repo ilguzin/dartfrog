@@ -28,6 +28,10 @@ services:
     networks:
       - ${ENV_NAME}
       - production
+      - production-frontend
+      - production-kafka_default
+      - production-mongo_default
+      - production-zk_default
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
@@ -60,6 +64,10 @@ services:
     networks:
       - ${ENV_NAME}
       - production
+      - production-frontend
+      - production-kafka_default
+      - production-mongo_default
+      - production-zk_default
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
@@ -92,6 +100,10 @@ services:
     networks:
       - ${ENV_NAME}
       - production
+      - production-frontend
+      - production-kafka_default
+      - production-mongo_default
+      - production-zk_default
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
@@ -101,4 +113,12 @@ networks:
   ${ENV_NAME}:
     external: true
   production:
+    external: true
+  production-frontend:
+    external: true
+  production-kafka_default:
+    external: true
+  production-mongo_default:
+    external: true
+  production-zk_default:
     external: true
