@@ -26,7 +26,10 @@ services:
       - mep-clean-frontend
       - mep-integration
       - mep-integration-frontend
+      - rs-clean
+      - rs-clean-frontend
       - rs-integration
+      - rs-integration-frontend
       - services-development
       - services-integration
     volumes:
@@ -59,7 +62,10 @@ services:
       - mep-clean-frontend
       - mep-integration
       - mep-integration-frontend
+      - rs-clean
+      - rs-clean-frontend
       - rs-integration
+      - rs-integration-frontend
       - services-development
       - services-integration
     volumes:
@@ -92,7 +98,10 @@ services:
       - mep-clean-frontend
       - mep-integration
       - mep-integration-frontend
+      - rs-clean
+      - rs-clean-frontend
       - rs-integration
+      - rs-integration-frontend
       - services-development
       - services-integration
     volumes:
@@ -111,7 +120,13 @@ networks:
     external: true
   mep-integration-frontend:
     external: true
+  rs-clean:
+    external: true
+  rs-clean-frontend:
+    external: true
   rs-integration:
+    external: true
+  rs-integration-frontend:
     external: true
   services-development:
     external: true
