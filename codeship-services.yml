@@ -45,3 +45,19 @@ deploy-dd-innoscale-swarm:
     - codeship.innoscale-swarm1.innoscale.provider.env.encrypted
   volumes:
     - ./.ssh:/root/.ssh
+
+deploy-dd-swarm-ch:
+  build:
+    image: serverfarm/ssh
+    dockerfile: Dockerfile.ssh
+  environment:
+    ENV_PATH: /mnt/chivol1/deployments
+    # ENV_GITHUB_REPO_NAME: dartfrog
+  encrypted_env_file:
+    # ENV_PATH (default: /mnt/deployments) and ENV_GITHUB_REPO_NAME (default: dartfrog) can be overridden in "environment" section
+    - codeship.dockerhub.env.encrypted
+    - codeship.dd-swarm-ch.env.encrypted
+    - codeship.github.swarm-pl-chi-app-01.env.encrypted
+    - codeship.swarm-ch.provider.env.encrypted
+  volumes:
+    - ./.ssh:/root/.ssh

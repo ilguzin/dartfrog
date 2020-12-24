@@ -12,3 +12,7 @@
     - name: Services Innoscale Production
       service: deploy-dd-innoscale-swarm
       command: /deploy/deploy_cd_run.sh dd-innoscale-swarm
+
+    - name: Services Chicago
+      service: deploy-dd-swarm-ch
+      command: /deploy/deploy_cd_run.sh dd-swarm-ch
