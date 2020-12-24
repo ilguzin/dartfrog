@@ -251,11 +251,11 @@ git_checkout() {
 
   # checkout the correct branch. it will either use the same branch name as the ${ENV_GITHUB_REPO_NAME} project or the name from the override var
   if [ ! -z "${RUN_ARG}" ]; then
-    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" git checkout $RUN_ARG
+    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" GIT_SSH="${ENV_BASEDIR}/git_ssh.sh" git checkout $RUN_ARG
   elif [ ! -z "${CI_TAG}" ]; then
-    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" git checkout $CI_TAG
+    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" GIT_SSH="${ENV_BASEDIR}/git_ssh.sh" git checkout $RUN_ARG
   elif [ ! -z "${CI_BRANCH}" ]; then
-    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" git checkout $CI_BRANCH
+    GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" GIT_SSH="${ENV_BASEDIR}/git_ssh.sh" git checkout $RUN_ARG
   else
     echo "ERROR: No git tag or branch found to checkout."
     exit 1
@@ -267,12 +267,16 @@ create_env() {
   echo -e $ENV_GITHUB_PRIVATE_SSH_KEY > /root/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}
   chmod 600 /root/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}
   ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-  # create env base directory and data directories
-  mkdir -p ${ENV_BASEDIR}
+  # create env base directory
+  mkdir -p ${ENV_BASEDIR}/${ENV_GITHUB_REPO_NAME}
   # cd there
   cd ${ENV_BASEDIR}
+  echo '#!/bin/sh' > git_ssh.sh
+  echo '# Workaround: GIT_SSH_COMMAND is not supported by Git < 2.3' >> git_ssh.sh
+  echo 'exec ${GIT_SSH_COMMAND:-ssh} "$@"' >> git_ssh.sh
+  chmod +x git_ssh.sh
   # clone the ${ENV_GITHUB_REPO_NAME} project into base directory
-  GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" git clone git@github.com:serverfarm/${ENV_GITHUB_REPO_NAME}.git
+  GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" GIT_SSH="${ENV_BASEDIR}/git_ssh.sh" git clone git@github.com:serverfarm/${ENV_GITHUB_REPO_NAME}.git
 
   git_checkout
 }
@@ -346,7 +350,7 @@ run_env_verify() {
 
 pull_env() {
   cd ${ENV_BASEDIR}/${ENV_GITHUB_REPO_NAME}/
-  GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" git pull
+  GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_github_${ENV_GITHUB_REPO_NAME}" GIT_SSH="${ENV_BASEDIR}/git_ssh.sh" git pull
   git_checkout
 }
 
