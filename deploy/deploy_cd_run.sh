@@ -63,10 +63,10 @@ if [ -z "$MANAGER_HOST" ]; then
   exit 0
 fi
 
-echo -e $PRIVATE_SSH_KEY >>/root/.ssh/id_rsa
+echo -e $PRIVATE_SSH_KEY >/root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
-ssh-keyscan -H $MANAGER_HOST >>/root/.ssh/known_hosts 2>/dev/null
-echo 'SendEnv ENV_* CI_*' >>/root/.ssh/config
+ssh-keyscan -H $MANAGER_HOST >/root/.ssh/known_hosts 2>/dev/null
+echo 'SendEnv ENV_* CI_*' >/root/.ssh/config
 scp /deploy/deploy.sh root@$MANAGER_HOST:/tmp/deploy.sh.${cdstamp} &>/dev/null
 
 ssh -T root@$MANAGER_HOST /tmp/deploy.sh.${cdstamp} ${env_name} ${run_command} ${run_arg} 2>&1
