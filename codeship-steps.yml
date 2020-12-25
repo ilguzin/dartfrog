@@ -16,3 +16,7 @@
     - name: Services Chicago
       service: deploy-dd-swarm-ch
       command: /deploy/deploy_cd_run.sh dd-swarm-ch
+
+    - name: Services Titan
+      service: deploy-dd-swarm-titan
+      command: /deploy/deploy_cd_run.sh dd-swarm-titan
