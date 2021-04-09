@@ -295,7 +295,7 @@ create_env_network() {
   # Create serivces network
   docker network create --driver overlay --scope swarm --attachable ${ENV_NAME} &>/dev/null
   # Create services expose network
-  docker network create --driver bridge --scope swarm frontend-${ENV_NAME} &>/dev/null
+  docker network create --driver overlay --scope swarm frontend-${ENV_NAME} &>/dev/null
 }
 
 set_compose_file() {
