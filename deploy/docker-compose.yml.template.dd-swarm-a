@@ -39,10 +39,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
-      - /mnt/data/deployments/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
-      - /mnt/data/deployments/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
-      - /mnt/data/deployments/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
-      - /mnt/data/deployments/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
+      - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
+      - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
 
   dd-agent-2:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -82,11 +82,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
-      - /mnt/data/deployments/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
-      - /mnt/data/deployments/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
-      - /mnt/data/deployments/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
-      - /mnt/data/deployments/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
-
+      - ${ENV_PATH}/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
+      - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
+      - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
 
   dd-agent-3:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -126,10 +125,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
-      - /mnt/data/deployments/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
-      - /mnt/data/deployments/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
-      - /mnt/data/deployments/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
-      - /mnt/data/deployments/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
+      - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
+      - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
 
 networks:
   ${ENV_NAME}:
