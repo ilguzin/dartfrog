@@ -13,7 +13,7 @@ services:
         constraints: [node.hostname == ${ENV_SWARM_HOST_1}]
     environment:
       - DD_API_KEY=${ENV_DD_API_KEY}
-      - DD_ENV=${ENV_NAME}
+      # - DD_ENV=${ENV_NAME}
       - DD_HOSTNAME=${ENV_SWARM_HOST_1}
       - DD_APM_ENABLED=false
       - DD_PROCESS_AGENT_ENABLED=true
@@ -51,7 +51,7 @@ services:
         constraints: [node.hostname == ${ENV_SWARM_HOST_2}]
     environment:
       - DD_API_KEY=${ENV_DD_API_KEY}
-      - DD_ENV=${ENV_NAME}
+      # - DD_ENV=${ENV_NAME}
       - DD_HOSTNAME=${ENV_SWARM_HOST_2}
       - DD_APM_ENABLED=false
       - DD_PROCESS_AGENT_ENABLED=true
@@ -89,7 +89,7 @@ services:
         constraints: [node.hostname == ${ENV_SWARM_HOST_3}]
     environment:
       - DD_API_KEY=${ENV_DD_API_KEY}
-      - DD_ENV=${ENV_NAME}
+      # - DD_ENV=${ENV_NAME}
       - DD_HOSTNAME=${ENV_SWARM_HOST_3}
       - DD_APM_ENABLED=false
       - DD_PROCESS_AGENT_ENABLED=true
