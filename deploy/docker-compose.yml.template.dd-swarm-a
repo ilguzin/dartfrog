@@ -6,7 +6,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        condition: on-failure
+        condition: always
         delay: 5s
         window: 20s
       placement:
@@ -23,6 +23,8 @@ services:
       - DD_LOGS_CONFIG_USE_COMPRESSION=true
       - DD_LOGS_CONFIG_COMPRESSION_LEVEL=6
       - DD_CONTAINER_EXCLUDE=name:dd-agent-1
+      - DD_USE_DOGSTATSD=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
     networks:
       - ${ENV_NAME}
       - mep-clean
@@ -49,7 +51,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        condition: on-failure
+        condition: always
         delay: 5s
         window: 20s
       placement:
@@ -66,6 +68,8 @@ services:
       - DD_LOGS_CONFIG_USE_COMPRESSION=true
       - DD_LOGS_CONFIG_COMPRESSION_LEVEL=6
       - DD_CONTAINER_EXCLUDE=name:dd-agent-2
+      - DD_USE_DOGSTATSD=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
     networks:
       - ${ENV_NAME}
       - mep-clean
@@ -92,7 +96,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        condition: on-failure
+        condition: always
         delay: 5s
         window: 20s
       placement:
@@ -109,6 +113,8 @@ services:
       - DD_LOGS_CONFIG_USE_COMPRESSION=true
       - DD_LOGS_CONFIG_COMPRESSION_LEVEL=6
       - DD_CONTAINER_EXCLUDE=name:dd-agent-3
+      - DD_USE_DOGSTATSD=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
     networks:
       - ${ENV_NAME}
       - mep-clean

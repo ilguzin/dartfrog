@@ -6,7 +6,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        # condition: always
+        condition: always
         delay: 5s
         window: 20s
       placement:
@@ -16,10 +16,15 @@ services:
       - DD_ENV=${ENV_NAME}
       - DD_HOSTNAME=${ENV_SWARM_HOST_1}
       - DD_APM_ENABLED=false
-      - DD_LOGS_ENABLED=false
-      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=false
       - DD_PROCESS_AGENT_ENABLED=true
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=false
+      - DD_LOGS_CONFIG_USE_HTTP=true
+      - DD_LOGS_CONFIG_USE_COMPRESSION=true
+      - DD_LOGS_CONFIG_COMPRESSION_LEVEL=6
       - DD_CONTAINER_EXCLUDE=name:dd-agent-1
+      - DD_USE_DOGSTATSD=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
     networks:
       - ${ENV_NAME}
       - production
@@ -31,13 +36,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+      - ${ENV_PATH}/production/data/logs/wingfoal:/var/log/production/wingfoal:ro
+      - ${ENV_PATH}/production/data/logs/mep-api-smtp-gateway:/var/log/production/mep-api-smtp-gateway:ro
 
   dd-agent-2:
     image: datadog/agent:${DD_AGENT_VERSION}
     deploy:
       replicas: 1
       restart_policy:
-        # condition: always
+        condition: always
         delay: 5s
         window: 20s
       placement:
@@ -47,10 +54,15 @@ services:
       - DD_ENV=${ENV_NAME}
       - DD_HOSTNAME=${ENV_SWARM_HOST_2}
       - DD_APM_ENABLED=false
-      - DD_LOGS_ENABLED=false
-      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=false
       - DD_PROCESS_AGENT_ENABLED=true
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=false
+      - DD_LOGS_CONFIG_USE_HTTP=true
+      - DD_LOGS_CONFIG_USE_COMPRESSION=true
+      - DD_LOGS_CONFIG_COMPRESSION_LEVEL=6
       - DD_CONTAINER_EXCLUDE=name:dd-agent-2
+      - DD_USE_DOGSTATSD=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
     networks:
       - ${ENV_NAME}
       - production
@@ -62,13 +74,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+      - ${ENV_PATH}/production/data/logs/wingfoal:/var/log/production/wingfoal:ro
+      - ${ENV_PATH}/production/data/logs/mep-api-smtp-gateway:/var/log/production/mep-api-smtp-gateway:ro
 
   dd-agent-3:
     image: datadog/agent:${DD_AGENT_VERSION}
     deploy:
       replicas: 1
       restart_policy:
-        # condition: always
+        condition: always
         delay: 5s
         window: 20s
       placement:
@@ -78,10 +92,15 @@ services:
       - DD_ENV=${ENV_NAME}
       - DD_HOSTNAME=${ENV_SWARM_HOST_3}
       - DD_APM_ENABLED=false
-      - DD_LOGS_ENABLED=false
-      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=false
       - DD_PROCESS_AGENT_ENABLED=true
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=false
+      - DD_LOGS_CONFIG_USE_HTTP=true
+      - DD_LOGS_CONFIG_USE_COMPRESSION=true
+      - DD_LOGS_CONFIG_COMPRESSION_LEVEL=6
       - DD_CONTAINER_EXCLUDE=name:dd-agent-3
+      - DD_USE_DOGSTATSD=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
     networks:
       - ${ENV_NAME}
       - production
@@ -93,6 +112,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+      - ${ENV_PATH}/production/data/logs/wingfoal:/var/log/production/wingfoal:ro
+      - ${ENV_PATH}/production/data/logs/mep-api-smtp-gateway:/var/log/production/mep-api-smtp-gateway:ro
 
 networks:
   ${ENV_NAME}:
