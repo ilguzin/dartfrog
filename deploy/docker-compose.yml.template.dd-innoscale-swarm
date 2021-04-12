@@ -6,7 +6,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        condition: always
+        # condition: always
         delay: 5s
         window: 20s
       placement:
@@ -44,7 +44,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        condition: always
+        # condition: always
         delay: 5s
         window: 20s
       placement:
@@ -82,7 +82,7 @@ services:
     deploy:
       replicas: 1
       restart_policy:
-        condition: always
+        # condition: always
         delay: 5s
         window: 20s
       placement:
