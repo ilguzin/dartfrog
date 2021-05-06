@@ -43,8 +43,12 @@ services:
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
       - ${ENV_PATH}/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
       - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-integration/data/logs/birman:/var/log/mep-integration/birman:ro
+      - ${ENV_PATH}/mep-integration/data/logs/bonoborose:/var/log/mep-integration/bonoborose:ro
       - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
       - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-clean/data/logs/birman:/var/log/mep-clean/birman:ro
+      - ${ENV_PATH}/mep-clean/data/logs/bonoborose:/var/log/mep-clean/bonoborose:ro
 
   dd-agent-2:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -88,8 +92,12 @@ services:
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
       - ${ENV_PATH}/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
       - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-integration/data/logs/birman:/var/log/mep-integration/birman:ro
+      - ${ENV_PATH}/mep-integration/data/logs/bonoborose:/var/log/mep-integration/bonoborose:ro
       - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
       - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-clean/data/logs/birman:/var/log/mep-clean/birman:ro
+      - ${ENV_PATH}/mep-clean/data/logs/bonoborose:/var/log/mep-clean/bonoborose:ro
 
   dd-agent-3:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -133,8 +141,12 @@ services:
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
       - ${ENV_PATH}/mep-integration/data/logs/wingfoal:/var/log/mep-integration/wingfoal:ro
       - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-integration/data/logs/birman:/var/log/mep-integration/birman:ro
+      - ${ENV_PATH}/mep-integration/data/logs/bonoborose:/var/log/mep-integration/bonoborose:ro
       - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
       - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
+      - ${ENV_PATH}/mep-clean/data/logs/birman:/var/log/mep-clean/birman:ro
+      - ${ENV_PATH}/mep-clean/data/logs/bonoborose:/var/log/mep-clean/bonoborose:ro
 
 networks:
   ${ENV_NAME}:
