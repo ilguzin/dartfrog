@@ -45,10 +45,14 @@ services:
       - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/mep-integration/data/logs/birman:/var/log/mep-integration/birman:ro
       - ${ENV_PATH}/mep-integration/data/logs/bonoborose:/var/log/mep-integration/bonoborose:ro
+      - ${ENV_PATH}/rs-integration/data/logs/bulldog:/var/log/rs-integration/bulldog:ro
+      - ${ENV_PATH}/rs-integration/data/logs/pointer-cod:/var/log/rs-integration/pointer-cod:ro
       - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
       - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/mep-clean/data/logs/birman:/var/log/mep-clean/birman:ro
       - ${ENV_PATH}/mep-clean/data/logs/bonoborose:/var/log/mep-clean/bonoborose:ro
+      - ${ENV_PATH}/rs-clean/data/logs/bulldog:/var/log/rs-clean/bulldog:ro
+      - ${ENV_PATH}/rs-clean/data/logs/pointer-cod:/var/log/rs-clean/pointer-cod:ro
 
   dd-agent-2:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -94,10 +98,14 @@ services:
       - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/mep-integration/data/logs/birman:/var/log/mep-integration/birman:ro
       - ${ENV_PATH}/mep-integration/data/logs/bonoborose:/var/log/mep-integration/bonoborose:ro
+      - ${ENV_PATH}/rs-integration/data/logs/bulldog:/var/log/rs-integration/bulldog:ro
+      - ${ENV_PATH}/rs-integration/data/logs/pointer-cod:/var/log/rs-integration/pointer-cod:ro
       - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
       - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/mep-clean/data/logs/birman:/var/log/mep-clean/birman:ro
       - ${ENV_PATH}/mep-clean/data/logs/bonoborose:/var/log/mep-clean/bonoborose:ro
+      - ${ENV_PATH}/rs-clean/data/logs/bulldog:/var/log/rs-clean/bulldog:ro
+      - ${ENV_PATH}/rs-clean/data/logs/pointer-cod:/var/log/rs-clean/pointer-cod:ro
 
   dd-agent-3:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -143,10 +151,14 @@ services:
       - ${ENV_PATH}/mep-integration/data/logs/mep-api-smtp-gateway:/var/log/mep-integration/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/mep-integration/data/logs/birman:/var/log/mep-integration/birman:ro
       - ${ENV_PATH}/mep-integration/data/logs/bonoborose:/var/log/mep-integration/bonoborose:ro
+      - ${ENV_PATH}/rs-integration/data/logs/bulldog:/var/log/rs-integration/bulldog:ro
+      - ${ENV_PATH}/rs-integration/data/logs/pointer-cod:/var/log/rs-integration/pointer-cod:ro
       - ${ENV_PATH}/mep-clean/data/logs/wingfoal:/var/log/mep-clean/wingfoal:ro
       - ${ENV_PATH}/mep-clean/data/logs/mep-api-smtp-gateway:/var/log/mep-clean/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/mep-clean/data/logs/birman:/var/log/mep-clean/birman:ro
       - ${ENV_PATH}/mep-clean/data/logs/bonoborose:/var/log/mep-clean/bonoborose:ro
+      - ${ENV_PATH}/rs-clean/data/logs/bulldog:/var/log/rs-clean/bulldog:ro
+      - ${ENV_PATH}/rs-clean/data/logs/pointer-cod:/var/log/rs-clean/pointer-cod:ro
 
 networks:
   ${ENV_NAME}:

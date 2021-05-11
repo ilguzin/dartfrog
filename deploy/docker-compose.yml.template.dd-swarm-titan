@@ -30,6 +30,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+      - ${ENV_PATH}/rs-production/data/logs/bulldog:/var/log/rs-production/bulldog:ro
+      - ${ENV_PATH}/rs-production/data/logs/pointer-cod:/var/log/rs-production/pointer-cod:ro
 
 networks:
   ${ENV_NAME}:
