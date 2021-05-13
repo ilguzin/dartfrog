@@ -40,6 +40,7 @@ services:
       - ${ENV_PATH}/production/data/logs/mep-api-smtp-gateway:/var/log/production/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/production/data/logs/birman:/var/log/production/birman:ro
       - ${ENV_PATH}/production/data/logs/bonoborose:/var/log/production/bonoborose:ro
+      - ${ENV_PATH}/production/data/logs/quarterdog:/var/log/production/quarterdog:ro
 
   dd-agent-2:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -80,6 +81,7 @@ services:
       - ${ENV_PATH}/production/data/logs/mep-api-smtp-gateway:/var/log/production/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/production/data/logs/birman:/var/log/production/birman:ro
       - ${ENV_PATH}/production/data/logs/bonoborose:/var/log/production/bonoborose:ro
+      - ${ENV_PATH}/production/data/logs/quarterdog:/var/log/production/quarterdog:ro
 
   dd-agent-3:
     image: datadog/agent:${DD_AGENT_VERSION}
@@ -120,6 +122,7 @@ services:
       - ${ENV_PATH}/production/data/logs/mep-api-smtp-gateway:/var/log/production/mep-api-smtp-gateway:ro
       - ${ENV_PATH}/production/data/logs/birman:/var/log/production/birman:ro
       - ${ENV_PATH}/production/data/logs/bonoborose:/var/log/production/bonoborose:ro
+      - ${ENV_PATH}/production/data/logs/quarterdog:/var/log/production/quarterdog:ro
 
 networks:
   ${ENV_NAME}:
